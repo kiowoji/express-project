@@ -1,12 +1,12 @@
 {
   "name": "express-project",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Basic Express.js Application for Users, Students and Articles",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Iryna Murzak",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2"
