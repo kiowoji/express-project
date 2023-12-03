@@ -6,7 +6,7 @@ const userExists = (req, res, next) => {
   const user = usersDocs.find((user) => user.email === userEmail);
 
   if (!user) {
-    return res.status(404).json({ error: "User not found" });
+    return next(createError(404, "User not found"));
   }
 
   req.user = user;
@@ -17,7 +17,7 @@ const validateUserPayload = (req, res, next) => {
   const newUser = req.body;
 
   if (!newUser) {
-    return res.status(400).json({ error: "Invalid JSON payload" });
+    return next(createError(400, "Invalid JSON payload"));
   }
 
   req.validatedUser = newUser;
