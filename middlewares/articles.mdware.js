@@ -1,12 +1,20 @@
 const createError = require("http-errors");
 
 const validateArticleBody = (req, res, next) => {
-  const requiredFields = ["name", "description", "type", "tags"]; 
+  const requiredFields = ["name", "description", "type", "tags"];
+  const missingFields = [];
 
-  for (const field of requiredFields) {
-    if (!(field in req.body)) {
-      return next(createError(400, `Bad Request: ${field} is required`));
+  requiredFields.forEach((field) => {
+    if (!req.body[field]) {
+      missingFields.push(field);
     }
+  });
+
+  if (missingFields.length > 0) {
+    const errorMessage = `Bad Request: Missing required fields - ${missingFields.join(
+      ", "
+    )}`;
+    return next(createError(400, errorMessage));
   }
 
   next();
