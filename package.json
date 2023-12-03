@@ -9,6 +9,7 @@
   "author": "Iryna Murzak",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0"
   }
 }
